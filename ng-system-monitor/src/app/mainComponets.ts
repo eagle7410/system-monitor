@@ -7,7 +7,7 @@ import {StatsComponent} from './stats/stats.component';
 import {GraphicComponent} from './graphic/graphic.component';
 
 // for Module
-export default [
+export const Componets = [
   LoginComponent,
   UsersComponent,
   MenuComponent,

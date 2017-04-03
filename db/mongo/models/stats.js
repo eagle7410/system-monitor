@@ -57,10 +57,18 @@ const collected = () => {
 const fromTo = (from, to) => new Promise((ok, bad) => {
 	let dateFrom = new Date(from.replace(/-/g, '/'));
 	let dateTo = new Date(to.replace(/-/g, '/'));
+	let tsFrom = dateFrom.getTime();
+	let tsTo = dateTo.getTime();
 
-	if (isNaN(dateFrom.getTime()) || isNaN(dateTo.getTime())) {
+	if (isNaN(tsFrom) || isNaN(tsTo)) {
 		console.log('~! Stats\fromTo Bad params');
 		return bad('BadParams');
+	}
+
+	if (tsFrom > tsTo) {
+		let b = dateTo;
+		dateTo = dateFrom;
+		dateFrom = b;
 	}
 
 	Model.find({
@@ -74,12 +82,27 @@ const fromTo = (from, to) => new Promise((ok, bad) => {
 			cpuPer: 1
 		}
 	).then(r => ok(r), e => {
-		console.log(`Error get stats ${from}, ${to}`, e);
-		bad('mongoErr');
-	});
+			console.log(`Error get stats ${from}, ${to}`, e);
+			bad('mongoErr');
+		}
+	);
 });
+
+const clearSync = storeDays => {
+	let d = new Date();
+	d.setDate(d.getDate() - storeDays - 1 );
+
+	Model.remove({created : {$lt : d}})
+		.then(cursor =>console.log(`~ Clear db. Remove ${cursor.result.n} records.`), e => console.log('~! Error clear db'));
+};
+
+const clear = storeDays => {
+	clearSync(storeDays);
+	setInterval(clearSync, util.date.ts.DAY);
+};
 
 module.exports = {
 	collected: collected,
-	fromTo: fromTo
+	fromTo: fromTo,
+	clear : clear
 };

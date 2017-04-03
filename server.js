@@ -8,6 +8,7 @@ const db = require('./db');
 // Models
 let users;
 let stats;
+
 // Connected to db
 db.connect(conf.db)
 
@@ -19,6 +20,9 @@ db.connect(conf.db)
 		return users.firstUsers(conf.users)
 	})
 	.then(() => {
+
+		stats.clear(conf.db.storeDays);
+
 		// Collected data
 		stats.collected();
 
@@ -27,6 +31,7 @@ db.connect(conf.db)
 
 		// Response static
 		app.use('/static', express.static('static'));
+		app.use('/', express.static('static/app'));
 
 		// parse application/json
 		app.use(bodyParser.json());

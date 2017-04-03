@@ -5,7 +5,8 @@
 	"db" : {
 		"type" :"mongo",
 		"port" : "localhost",
-		"name" : "systemMonitor"
+		"name" : "systemMonitor",
+		"storeDays" : 12
 	},
 	"users" : [
 		{
