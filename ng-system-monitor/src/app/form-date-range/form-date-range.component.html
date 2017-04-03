@@ -1,0 +1,30 @@
+<form  name="form" (ngSubmit)=" submit()" #f="ngForm" novalidate>
+  <div class="row">
+    <div class="col-md-4">
+      from
+      <div class="form-group" [ngClass]="{ 'has-error': isEmptyDateFrom }">
+        <div class='input-group date' id="dateFrom">
+          <input type='text' class="form-control" id="dateFromVal" />
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+      <div *ngIf="isEmptyDateFrom" class="help-block">Date from is required</div>
+    </div>
+    <div class="col-md-4">
+      to
+      <div class="form-group" >
+        <div class='input-group date' id="dateTo" [ngClass]="{ 'has-error': isEmptyDateTo }">
+          <input type='text' class="form-control"/>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+        <div *ngIf="isEmptyDateTo" class="help-block">Date to is required</div>
+      </div>
+    </div>
+
+  </div>
+  <button class="btn btn-primary">Get statistics</button>
+</form>

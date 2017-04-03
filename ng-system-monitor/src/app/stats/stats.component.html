@@ -1,0 +1,18 @@
+
+<div class="container">
+  <menu></menu>
+  <h1>Statistics</h1>
+  <form-date-range (selectedStatsRange)="getStats($event)"></form-date-range>
+  <div *ngIf="stats.length">
+    <graphic
+      [stats]="stats"
+      [labels]="labels"
+    ></graphic>
+  </div>
+  <div *ngIf="isLoadStats" class="isLoad">
+    <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...
+  </div>
+  <div *ngIf="isNoData">
+    <h1>No data.</h1>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+
+<div class="container">
+  <menu></menu>
+  <h1>Users <a [routerLink]="['/user-add']" class="btn btn-success">Add</a></h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="col col-sm-1">Action</th>
+        <th>Login</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="users">
+      <tr  *ngFor="let user of users">
+        <td><button class="btn btn-danger" (click)="userRemove(user)">Delete</button></td>
+        <td [innerHTML]="user.login"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
