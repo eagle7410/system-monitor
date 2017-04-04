@@ -7,8 +7,7 @@ declare let moment: any;
 @Component({
   moduleId: module.id,
   selector: 'form-date-range',
-  templateUrl: './form-date-range.component.html',
-  styleUrls: ['./form-date-range.component.css']
+  templateUrl: './form-date-range.component.html'
 })
 
 export class FormDateRangeComponent implements AfterViewInit {

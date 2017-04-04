@@ -4,11 +4,13 @@ import {AuthenticationService} from '../_services/index';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'login.component.html'
+  templateUrl: 'login.component.html',
+  styleUrls : ['login.component.css']
 })
 
 export class LoginComponent implements OnInit {
   model: any = {};
+  isShowPass : boolean = false;
   loading = false;
   error = '';
   
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
     // reset login status
     this.authenticationService.logout();
   }
-  
+ 
   submit() {
     
     this.loading = true;

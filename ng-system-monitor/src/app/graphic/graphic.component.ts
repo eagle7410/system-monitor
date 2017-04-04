@@ -4,7 +4,6 @@ import {Component, Input, ViewChild} from '@angular/core';
   moduleId: module.id,
   selector: 'graphic',
   templateUrl: './graphic.component.html',
-  styleUrls: ['./graphic.component.css']
 })
 
 export class GraphicComponent {

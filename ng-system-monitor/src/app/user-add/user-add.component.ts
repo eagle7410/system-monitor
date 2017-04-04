@@ -5,8 +5,7 @@ import {Router} from '@angular/router';
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  templateUrl: './user-add.component.html',
-  styleUrls: ['./user-add.component.css']
+  templateUrl: './user-add.component.html'
 })
 export class UserAddComponent {
   model: any = {};

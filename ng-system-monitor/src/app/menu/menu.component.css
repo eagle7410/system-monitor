@@ -3,5 +3,5 @@ a.active {
 }
 ul {
   padding: 0 !important;
-  -webkit-padding-start: 0px;
+  -webkit-padding-start: 0;
 }
