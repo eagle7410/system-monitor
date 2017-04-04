@@ -26,12 +26,12 @@ db.connect(conf.db)
 		// Collected data
 		stats.collected();
 
-		// Show request stats in console.
-		app.use(morgan('dev'));
-
 		// Response static
 		app.use('/static', express.static('static'));
 		app.use('/', express.static('static/app'));
+
+		// Show request stats in console.
+		app.use(morgan('dev'));
 
 		// parse application/json
 		app.use(bodyParser.json());
