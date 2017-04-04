@@ -31,7 +31,7 @@ Inner text him.
 	]
 }
 ```
-Example see statistics.
+Example see statistics.  
 ![In work screenshot](https://raw.githubusercontent.com/eagle7410/system-monitor/master/example.jpg)
 ## People
 
